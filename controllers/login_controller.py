@@ -34,8 +34,8 @@ class LoginController:
             if resultado:
                 messagebox.showinfo("Bienvenido", "Inicio de sesion exitoso")
                 # Cuando se cree el controlador de mascotas
-                # self.root.destroy()
-                # MascotaController().iniciar()
+                self.root.destroy()
+                MascotaController().iniciar()
             else:
                 messagebox.showerror("Error", "Usuario o Clave incorrecta")
         except Exception as e:
