@@ -58,13 +58,10 @@ class CitaController:
             except Exception as e:
                 messagebox.showerror("Error", str(e))  # Muestra el error si la eliminación falla.
                 
-    #metodo para volver a la ventana principal
-    def volver_a_mascotas(self):
-        """cierra la ventana de citas y regresa a la ventana principal"""
-        try:
-            from controllers.mascota_controller import MascotaController
-            self.root.destroy()
-            MascotaController().iniciar
-        except Exception as e:
-            messagebox.showerror("Error", str(e))
+     # Cierra la ventana de citas y regresa a mascotas.
+    def volver_mascotas(self):
+        # Importa aquí el controlador para evitar importaciones circulares.
+        from controllers.mascota_controller import MascotaController
 
+        self.root.destroy()  # Cierra la ventana de citas.
+        MascotaController().iniciar()  # Crea y abre la ventana de mascotas.

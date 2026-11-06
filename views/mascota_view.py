@@ -59,30 +59,26 @@ class MascotaView:
         botones.grid(row=3, column=0, columnspan=4, pady=12)
 
         # Botón para guardar una mascota.
-        ttk.Button(
-            botones, text="Guardar", command=self.guardar
-        ).pack(side="left", padx=5)
+        ttk.Button(botones, text="Guardar", command=self.guardar).pack(side="left", padx=5)
 
         # Botón para actualizar la mascota seleccionada.
-        ttk.Button(
-            botones, text="Actualizar", command=self.actualizar
-        ).pack(side="left", padx=5)
+        ttk.Button(botones, text="Actualizar", command=self.actualizar).pack(side="left", padx=5)
 
         # Botón para eliminar la mascota seleccionada.
-        ttk.Button(
-            botones, text="Eliminar", command=self.eliminar
-        ).pack(side="left", padx=5)
+        ttk.Button(botones, text="Eliminar", command=self.eliminar).pack(side="left", padx=5)
 
         # Botón para limpiar los campos.
-        ttk.Button(
-            botones, text="Limpiar", command=self.limpiar
-        ).pack(side="left", padx=5)
+        ttk.Button(botones, text="Limpiar", command=self.limpiar).pack(side="left", padx=5)
 
         # Botón para abrir las citas de la mascota seleccionada.
-        ttk.Button(
-            botones, text="Citas", command=self.ver_citas
-        ).pack(side="left", padx=5)
+        ttk.Button(botones, text="Citas", command=self.ver_citas).pack(side="left", padx=5)
 
+        #ventana de medicos equis de
+        ttk.Button(botones, text="Médicos", command=self.ver_medicos).pack(side="left", padx=5)
+
+        #boton para productos jejej
+        ttk.Button(botones, text="Productos", command=self.ver_productos).pack(side="left", padx=5)
+        
     # Método para crear la tabla.
     def crear_tabla(self):
         frame = ttk.Frame(self.root)  # Crea el contenedor de la tabla.
@@ -235,3 +231,13 @@ class MascotaView:
             return
         #llamar al controlador para que abra la ventana
         self.controller.abrir_citas(self.id_seleccionado)
+        
+    def ver_medicos(self):
+        from views.medico_view import MedicoView
+        ventana = tk.Toplevel(self.root)
+        MedicoView(ventana)
+    
+    def ver_productos(self):
+        from views.producto_view import ProductoView
+        ventana = tk.Toplevel(self.root)
+        ProductoView(ventana)
