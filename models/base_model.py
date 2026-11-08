@@ -22,6 +22,6 @@ class BaseModel:
             conexion.commit()
         except Exception:
             conexion.rollback()
-            return False
+            raise  # Deja que el controlador muestre el error; no confirma un guardado fallido.
         finally:
             conexion.close()

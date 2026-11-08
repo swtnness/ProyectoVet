@@ -232,12 +232,12 @@ class MascotaView:
         #llamar al controlador para que abra la ventana
         self.controller.abrir_citas(self.id_seleccionado)
         
+    # Abre médicos mediante su controlador para conectar el formulario con MySQL.
     def ver_medicos(self):
-        from views.medico_view import MedicoView
-        ventana = tk.Toplevel(self.root)
-        MedicoView(ventana)
-    
+        from controllers.medico_controller import MedicoController
+        MedicoController(self.root)
+
+    # Abre productos sin necesitar una mascota seleccionada.
     def ver_productos(self):
-        from views.producto_view import ProductoView
-        ventana = tk.Toplevel(self.root)
-        ProductoView(ventana)
+        from controllers.producto_controller import ProductoController
+        ProductoController(self.root)
